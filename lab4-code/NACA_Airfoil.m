@@ -1,9 +1,14 @@
-function [x, y] = NACA_Airfoil(m, p, t, c, N)
+function [x_a, y_a] = NACA_Airfoil(m, p, t, c, N)
+  % Creates a NACA 4-digit series airfoil based on the parameters
   % m -> maximum camber
   % p -> location of max camber
   % t -> thickness
   % c -> chord length
   % N -> number of panels to be used
+
+  m = m/100;
+  p = p/10;
+  t = t/100;
 
   x = linspace(0, c, N);
 
@@ -32,8 +37,8 @@ function [x, y] = NACA_Airfoil(m, p, t, c, N)
   yl = (y_c - yt.*cos(zeta))';
 
   % format and return
-  x = [xu, xl];
-  y = [yu, yl];
+  x_a = [flip(xl); xu(2:end)];
+  y_a = [flip(yl); yu(2:end)];
 end
 
 % mean camber line
