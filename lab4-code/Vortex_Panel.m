@@ -1,4 +1,4 @@
-function gamma = Vortex_Panel(xb, yb, V_inf, alpha, m)
+function [gamma, cp] = Vortex_Panel(xb, yb, V_inf, alpha, m)
   x      = zeros(1, m);
   y      = zeros(1, m);
   s      = zeros(1, m);
